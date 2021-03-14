@@ -1,0 +1,148 @@
+:root {
+	--color-bg: #2a1a3b;
+	--color-bg-dark: #190f24;
+	--color-fg: #fff;
+	--color-primary: #e41162;
+	--color-primary-light: #ffb9d4;
+	--color-primary-dark: #9c003c;
+	--color-primary-alpha: rgba(219, 75, 130, 0.6);
+	--space: 1.5rem;
+	--space-sm: 1rem;
+	--space-xs: .75rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Source Code Pro', fixed-width;
+	padding: 0;
+	margin: 0;
+	background-color: var(--color-bg);
+	color: var(--color-fg);
+}
+
+.input {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+
+.input textarea {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	padding: var(--space);
+	background-color: var(--color-bg);
+	color: var(--color-fg);
+	border: none;
+	resize: none;
+	font: inherit;
+	border: 1px solid transparent;
+	outline: none;
+}
+
+.input textarea:focus {
+	border-color: var(--color-primary);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.filters {
+	padding: var(--space);
+	padding-top: var(--space-sm);
+	display: flex;
+	gap: var(--space-sm);
+}
+
+.filters input {
+	flex: 1;
+	background-color: var(--color-bg-dark);
+	color: var(--color-primary-light);
+	text-shadow: 0 0 4px var(--color-primary), 0 0 10px var(--color-primary);
+	font-family: inherit;
+	font-weight: 300;
+	border: none;
+	padding: var(--space-xs) var(--space-sm);
+	border-radius: 3px;
+	font-size: 1.4em;
+}
+
+.filters input::placeholder {
+	color: var(--color-primary-alpha);
+	text-shadow: 0 0 6px var(--color-bg-dark);
+}
+
+.filter {
+	flex: 1;
+}
+
+.filter label {
+	display: inline-block;
+	font-size: .75em;
+	color: var(--color-primary);
+	margin: 0 0 var(--space-xs) var(--space-sm);
+	text-shadow: 0 0 4px var(--color-primary-dark);
+}
+
+.filter .error {
+	font-size: .75em;
+	color: rgb(245, 110, 110);
+	text-shadow: 0 0 4px #f00;
+}
+
+.filter input {
+	width: 100%;
+	outline: none;
+}
+
+.output {
+	flex: 1;
+	padding: 0 var(--space);
+}
+
+.output pre {
+	margin: 0;
+	padding: var(--space-sm);
+	overflow: auto;
+}
+
+.output-clear {
+	text-align: right;
+	margin-top: -1rem;
+}
+
+.output-clear button {
+	display: inline-block;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-size: .75em;
+	color: var(--color-primary);
+	margin: 0 0 var(--space-xs) var(--space-sm);
+	text-shadow: 0 0 4px var(--color-primary-dark);
+	cursor: pointer;
+}
+
+pre::-webkit-scrollbar {
+  width: 10px;
+	height: 10px;
+}
+pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-bg) var(--color-bg-dark);
+}
+pre::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+	border-radius: 1em;
+}
+pre::-webkit-scrollbar-thumb {
+  background-color: var(--color-bg) ;
+  border-radius: 6px;
+  border: 3px solid var(--color-bg-dark);
+}
