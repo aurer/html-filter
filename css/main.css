@@ -108,12 +108,11 @@ body {
 
 .output pre {
 	margin: 0;
-	padding: var(--space-sm);
+	padding: 0 0 var(--space-sm) var(--space-sm);
 	overflow: auto;
 }
 
 .output-clear {
-	text-align: right;
 	margin-top: -1rem;
 }
 
