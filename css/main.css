@@ -124,6 +124,7 @@ body {
 	font-size: .75em;
 	color: var(--color-primary);
 	margin: 0 0 var(--space-xs) var(--space-sm);
+	padding: 0;
 	text-shadow: 0 0 4px var(--color-primary-dark);
 	cursor: pointer;
 }
