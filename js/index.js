@@ -3,7 +3,7 @@ import filterHTML from '/js/lib/filterHTML.js';
 const prism = new Worker('/js/lib/prism.js');
 
 new Vue({
-	el: "#app",
+	el: '#app',
 	data: {
 		input: '',
 		query: '',
@@ -12,49 +12,49 @@ new Vue({
 	},
 
 	mounted: function () {
-		this.setOutput();
+		this.setOutput()
 	},
 
 	watch: {
-		query: function() {
+		query: function () {
 			this.setOutput()
 		},
-		input: function() {
-			this.setOutput();
-		}
+		input: function () {
+			this.setOutput()
+		},
 	},
 
 	computed: {
-		showInput: function() {
-			return this.input == "";
-		}
+		showInput: function () {
+			return this.input == ''
+		},
 	},
 
 	methods: {
 		setOutput: function () {
 			let { html, error } = filterHTML(this.input, this.query)
-			this.error = error;
+			this.error = error
 
 			// Beautify
 			const beautifyDefaults = {
-				unformatted: ['code', 'pre', 'em', 'strong', 'span'],
+				unformatted: ['code', 'pre'],
 				indent_inner_html: true,
 				indent_char: ' ',
 				indent_size: 2,
-				sep: '\n'
+				sep: '\n',
 			}
 			html = jsBeautify.html(html, beautifyDefaults)
 
 			// Syntax
-			prism.postMessage(JSON.stringify({language: 'html', code: html}))
+			prism.postMessage(JSON.stringify({ language: 'html', code: html }))
 			prism.onmessage = ({ data }) => {
-				this.output = data;
+				this.output = data
 			}
 		},
 
-		clearInput: function() {
-			this.input = "";
-		}
+		clearInput: function () {
+			this.input = ''
+		},
 	},
 
 	template: `
@@ -72,11 +72,11 @@ new Vue({
 				</div>
 				<div class="output">
 					<div class="output-clear">
-						<button v-on:click="clearInput">Clear</button>
+						<button v-on:click="clearInput">Clear HTML</button>
 					</div>
 					<pre v-html="output" />
 				</div>
 			</div>
 		</div>
-	`
+	`,
 })
